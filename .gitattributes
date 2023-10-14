@@ -1,12 +1,20 @@
 import java.util.Random;
 import java.util.Scanner;
 public class Main {
+    static boolean Included(String s1, String s2) {
+        for (int x = 0; x < s1.length(); x++) {
+            for (int y = 0; (x + y) < s1.length() && y < s2.length(); y++) {
+                if (s1.charAt(x + y) != s2.charAt(y)) break;
+                if (y == s2.length() - 1)
+                    return true; // условие, когда подстрока является частью строки
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
-        int x;
-        double y, z;
-        x = 5;
-        y = x + 2.8;
-        z = 2 * (y + 3) + 1.5;
-        z = z + 0.9;
+
+        boolean N = Included("Король Артур", "Артур");
+        System.out.println(N);
     }
 }
